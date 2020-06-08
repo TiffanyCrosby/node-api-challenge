@@ -10,7 +10,7 @@ router.use(express.json());
 router.get('/', (req, res) => {
     Projects.get()
     .then(project => {
-        res.status(200).json(`We Found them! ${project}`)
+        res.status(200).json(project)
     })
     .catch(error => {
         console.log(error);
