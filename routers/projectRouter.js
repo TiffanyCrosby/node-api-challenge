@@ -18,5 +18,28 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/:id',  (req, res) => {
+    Projects.get(req.params.id)
+    .then(project => {
+      if(!project){
+        res.status(404).json({ errorMessage: "The user with the specified ID does not exist." })
+      } else {
+        res.status(200).json(project)
+      }
+    })
+  });
+
+
+//   function validateProjectId(req, res, next) {
+//         Projects.get(req.params.id)
+//         .then(project => {
+//             if (!user){
+//                 res.status(400).json({ errorMessage: "Invalid user ID" })
+//             } else {
+//                 req.project = project;
+//                 next();
+//         }
+//         })
+//   }
 
 module.exports = router;
