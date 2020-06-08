@@ -78,8 +78,9 @@ router.get('/:id', validateProjectId, (req, res) => {
   
 
   function validateProjectId(req, res, next) {
-	Projects.get(req.params.id).then((projects) => {
-		if (!projects) {
+    Projects.get(req.params.id)
+    .then((project) => {
+		if (!project) {
 			res.status(404).json({ errorMessage: `Invalid Project ID.` });
 		} else {
 			req.projects = req.params.id;
