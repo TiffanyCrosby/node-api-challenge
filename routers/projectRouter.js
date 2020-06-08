@@ -40,6 +40,17 @@ router.get('/:id',  (req, res) => {
     })
   });
 
+  router.post('/', (req, res) => {
+    Projects.insert(req.body)
+    .then(project => {
+      res.status(201).json({successMessage:`${project.name} added to database!`})
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({ errorMessage: "There was an issue with saving user to the database."})
+    })
+  });
+  
 
 //   function validateProjectId(req, res, next) {
 //         Projects.get(req.params.id)
