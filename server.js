@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
-// const Projects = require('./data/helpers/projectModel');
-// const Actions = require('./data/helpers/actionModel');
+const Projects = require('./data/helpers/projectModel');
+const Actions = require('./data/helpers/actionModel');
 
 const projectRouter = require('./routers/projectRouter');
 const actionRouter = require('./routers/actionRouter');
@@ -25,7 +25,7 @@ function logger(req, res, next){
     const method = req.method;
     const endpoint = req.originalUrl;
     
-    console.log(`${method} to ${endpoint} ${base} at ${new Date().toISOString()}`);
+    console.log(`${method} to ${endpoint} at ${new Date().toISOString()}`);
     next();
 }
 
@@ -34,4 +34,3 @@ function notFound(req, res, next){
 }
 
 module.exports = server;
-
