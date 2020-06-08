@@ -81,7 +81,7 @@ function validateActionId(req, res, next) {
     function validateAction(req, res, next) {
         if (Object.keys(req.body).length === 0) {
             res.status(400).json({ message: 'Missing Data.' });
-        } else if (!req.body.description || !req.body.notes) {
+        } else if (!req.body[0].description || !req.body[0].notes) {
             res.status(400).json({ message: 'Description and Notes required.' });
         } else {
             return next();
