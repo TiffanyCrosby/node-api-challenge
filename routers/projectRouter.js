@@ -29,6 +29,17 @@ router.get('/:id',  (req, res) => {
     })
   });
 
+  router.get('/:id/actions',  (req, res) => {
+    Projects.getProjectActions(req.params.id)
+    .then(action => {
+      if(action === 0){
+        res.status(400).json({errorMessage: `Oops, we couldn't find any actions!`})
+      } else {
+      res.status(200).json(action)
+      }
+    })
+  });
+
 
 //   function validateProjectId(req, res, next) {
 //         Projects.get(req.params.id)
