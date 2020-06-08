@@ -17,3 +17,6 @@ router.get('/', (req, res) => {
         res.status(404).json(`We can't find ANYTHING!!!!`)
     })
 });
+
+
+module.exports = router;
