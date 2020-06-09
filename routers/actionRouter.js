@@ -30,13 +30,14 @@ router.get('/:id',  validateActionId, (req, res) => {
 });
 
   router.post('/', (req, res) => {
+    // console.log(req.body);
     Action.insert(req.body)
     .then(action => {
-      res.status(201).json({successMessage:`${action.description} added to database!`})
+      res.status(201).json(action)
     })
     .catch(error => {
       console.log(error);
-      res.status(500).json({ errorMessage: "There was an issue with saving user to the database."})
+      res.status(500).json({ errorMessage: "There was an issue with saving the action to the database."})
     })
   });
 
