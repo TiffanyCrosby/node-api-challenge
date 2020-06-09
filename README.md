@@ -39,14 +39,26 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 - [ ] Mention two parts of Express that you learned about this week.
+express.json() === allows the app to be translated into json when displaying to the web and other apps/react
+const server/router = express() === we are calling express so that we can configure our server.
+.get() === it's a handler function to will run GET requests to the server.
+
 
 - [ ] Describe Middleware?
+they are functions that are executed in the order they are presented on the server...either top to bottom and/or left to right...they do different things...they either log some data, manipulate data, or check/validate data.
+
 
 - [ ] Describe a Resource?
+it could be a file, some data...array/object... it's whatever the request was trying to get from the server...
+
 
 - [ ] What can the API return to help clients know if a request was successful?
+a 200 response status and custom message
+
 
 - [ ] How can we partition our application into sub-applications?
+we can use express routers === different routers for different endpoints...
+
 
 ## Minimum Viable Product
 
