@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 		});
 });
 
-router.get('/:id', validateActionId, (req, res) => {
+router.get('/:id',  validateActionId, (req, res) => {
 	Action.get(req.actions)
 		.then((action) => {
 			res.status(200).json(action);
@@ -65,7 +65,8 @@ router.get('/:id', validateActionId, (req, res) => {
   });
 
 function validateActionId(req, res, next) {
-    Actions.get(req.params.id)
+    // console.log(req.params.id)
+    Action.get(req.params.id)
     .then((action) => {
 		if (!action) {
 			res.status(404).json({ errorMessage: `Invalid Project ID.` });
@@ -81,7 +82,7 @@ function validateActionId(req, res, next) {
     function validateAction(req, res, next) {
         if (Object.keys(req.body).length === 0) {
             res.status(400).json({ message: 'Missing Data.' });
-        } else if (!req.body[0].description || !req.body[0].notes) {
+        } else if (!req.body.description || !req.body.notes) {
             res.status(400).json({ message: 'Description and Notes required.' });
         } else {
             return next();

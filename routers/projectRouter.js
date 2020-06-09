@@ -92,7 +92,7 @@ router.get('/:id', validateProjectId, (req, res) => {
 function validateProject(req, res, next) {
 	if (Object.keys(req.body).length === 0) {
 		res.status(400).json({ message: 'Missing Data.' });
-	} else if (!req.body[0].name || !req.body[0].description) {
+	} else if (!req.body.name || !req.body.description) {
 		res.status(400).json({ message: 'Name and Description required' });
 	} else {
 		return next();
